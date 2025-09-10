@@ -22,8 +22,6 @@ The purpose of this project is to practice building a complete data management w
 
 # Getting Started:
 
-## Getting Started:
-
 ## Installation:
 - git clone https://github.com/Kirillius7/CSV-Import-Tool
 - cd project
