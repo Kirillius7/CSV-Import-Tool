@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Person>
+<body>
+<h2 class="d-flex justify-content-center mt-4" style="color: white">Upload CSV</h2>
+
+<div class="d-flex justify-content-center mt-4">
+    <form asp-action="UploadCsv" asp-controller="Person" enctype="multipart/form-data" method="post" class="p-3 border rounded bg-light" style="min-width: 300px; max-width: 500px;">
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <div class="alert alert-danger mb-2">@ViewBag.ErrorMessage</div>
+            }
+        <input type="file" name="file" class="form-control mb-2" />
+        <button type="submit" class="btn btn-primary w-100">Upload</button>
+    </form>
+</div>
+<hr style="color: white" />
+
+@if (Model != null && Model.Any())
+{
+    <div class="mb-3">
+        <input type="text" id="filterInput" placeholder="Filter by value..." class="form-control" />
+    </div>
+      <table class="table data-table" id="peopleTable">
+        <thead>
+            <tr>
+                <th class="sortable">Name</th>
+                <th class="sortable">Date of Birth</th>
+                <th class="sortable">Married</th>
+                <th class="sortable">Phone</th>
+                <th class="sortable">Salary</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var person in Model)
+            {
+                <tr data-id="@person.Id">
+                    <td class="editable" data-field="Name">@person.Name</td>
+                    <td class="editable" data-field="DateOfBirth">@person.DateOfBirth.ToShortDateString()</td>
+                    <td class="editable" data-field="Married">@person.Married</td>
+                    <td class="editable" data-field="Phone">@person.Phone</td>
+                    <td class="editable" data-field="Salary">@person.Salary.ToString("0.00")</td>
+                    <td>
+                        <button class="btn btn-outline-success saveBtn">Save</button>
+                        <a asp-action="DeleteRow" class="btn btn-outline-danger" asp-route-id="@person.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@section Scripts {
+    <script src="~/js/inlineEdit.js"></script>
+    <script src="~/js/sortTable.js"></script>
+}
+</body>

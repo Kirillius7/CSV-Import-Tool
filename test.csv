@@ -1,0 +1,3 @@
+Id;Name;DateOfBirth;Married;Phone;Salary
+12;John;01.01.1990;TRUE;123456789;5000
+13;Mary;12.05.1995;FALSE;987654321;4000
