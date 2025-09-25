@@ -1,6 +1,6 @@
 ﻿namespace TestApplicationPopovKyrylo.Models
 {
-    public class PersonUpdateDTO
+    public class PersonUpdateDTO // об'єкт передачі даних між шарами
     {
         public string? Name { get; set; }
         public string? DateOfBirth { get; set; }
