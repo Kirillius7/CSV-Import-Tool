@@ -5,7 +5,7 @@ namespace TestApplicationPopovKyrylo.Services
 {
     public interface IPersonService
     {
-        IEnumerable<Person> Upload();
+        Task <IEnumerable<Person>> Upload();
         Task DeleteRow(int? id);
         Task UpdateRow(int id, [FromBody] PersonUpdateDTO updated);
         Task<string> UploadCsv(IFormFile file);

@@ -15,9 +15,9 @@ public class PersonController : Controller
     }
 
     [HttpGet]
-    public IActionResult Upload()
+    public async Task <IActionResult> Upload()
     {
-        var people = _personService.Upload();
+        var people = await _personService.Upload();
         return View("~/Views/Home/Upload.cshtml", people);
     }
     [HttpPost]
