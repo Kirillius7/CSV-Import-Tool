@@ -5,13 +5,11 @@ using TestApplicationPopovKyrylo.Services;
 
 public class PersonController : Controller
 {
-    private readonly PersonDbContext _context;
     private readonly IPersonService _personService;
 
-    public PersonController(IPersonService personService, PersonDbContext context)
+    public PersonController(IPersonService personService)
     {
         _personService = personService;
-        _context = context;
     }
 
     [HttpGet]
