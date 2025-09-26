@@ -19,8 +19,8 @@ html {
 
 body {
     margin-bottom: 60px;
-    background: #8ACFD1;
-    background: linear-gradient(0deg, #8ACFD1, #5C05F1);
+    background: #8ACFD1; /* main color if gradient doesn't work */
+    background: linear-gradient(0deg, #8ACFD1, #5C05F1); /* how gradient works, a shift from top to bottom */
     background-size: cover;
 }
 
