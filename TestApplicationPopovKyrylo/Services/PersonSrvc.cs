@@ -15,9 +15,9 @@ namespace TestApplicationPopovKyrylo.Services
             _csvService = csvService;
         }
 
-        public IEnumerable<Person> Upload()
+        public async Task <IEnumerable<Person>> Upload()
         {
-            return _personDbContext.people.ToList();
+            return await _personDbContext.people.ToListAsync();
         }
 
         public async Task DeleteRow(int? id)
