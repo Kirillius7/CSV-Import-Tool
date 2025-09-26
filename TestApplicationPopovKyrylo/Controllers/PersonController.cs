@@ -20,11 +20,13 @@ public class PersonController : Controller
         var people = await _personService.Upload();
         return View("~/Views/Home/Upload.cshtml", people);
     }
-    [HttpPost]
+
+    [HttpGet]
     public async Task<IActionResult> DeleteRow(int? id)
     {
         await _personService.DeleteRow(id);
-        return View("~/Views/Home/Upload.cshtml", _context.people);
+        var people = await _personService.Upload();
+        return View("~/Views/Home/Upload.cshtml", people);
     }
 
     [HttpPost]
